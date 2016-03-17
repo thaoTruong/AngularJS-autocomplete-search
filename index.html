@@ -1,0 +1,28 @@
+<!doctype html>
+<!--assigning module-->
+<html ng-app="autocompleteApp">
+<head>
+    <title>Search</title>
+    <!--jquery lib-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- angularjs lib-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- style sheet-->
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <!-- module and controller-->
+    <script src="app.js"></script>
+</head>
+<body>
+<!--assigning controller-->
+<div ng-controller="autocompleteController as cont">
+    <!-- input field type list, assigning value to $term then on every keyup event process value with function loadSuggestions-->
+    Search for <input list="suggestions" ng-model="term" ng-keyup="cont.loadSuggestions(term)">
+    <!-- suggestions show up every time there's a keyup event from the input field above, suggestions are loaded dynamically as we type -->
+    <datalist id="suggestions">
+        <div ng-repeat="suggestion in cont.suggestions">
+            <option value="{{suggestion}}">
+        </div>
+    </datalist>
+</div>
+</body>
+</html>
