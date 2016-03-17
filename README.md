@@ -9,9 +9,7 @@ Code sample:
     Search for <input list="suggestions" ng-model="term" ng-keyup="cont.loadSuggestions(term)">
     <!-- suggestions show up every time there's a keyup event from the input field above, suggestions are loaded dynamically as we type -->
     <datalist id="suggestions">
-        <div ng-repeat="suggestion in cont.suggestions">
-            <option value="{{suggestion}}">
-        </div>
+            <option ng-repeat="suggestion in cont.suggestions" value="{{suggestion}}">
     </datalist>
 </div>
 ```
